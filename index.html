@@ -58,8 +58,6 @@
         position: sticky;
         top: 0;
         z-index: 10;
-        display: grid;
-        gap: 10px;
         padding: 10px 0 12px;
         background: linear-gradient(180deg, var(--bg) 78%, rgba(245, 247, 244, 0));
       }
@@ -78,13 +76,6 @@
         letter-spacing: 0;
       }
 
-      .subtitle {
-        margin: 2px 0 0;
-        color: var(--muted);
-        font-size: 13px;
-        line-height: 1.4;
-      }
-
       .download {
         display: inline-flex;
         flex: 0 0 auto;
@@ -101,25 +92,6 @@
         text-decoration: none;
       }
 
-      .status {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        min-height: 38px;
-        padding: 8px 12px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.9);
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .page-count {
-        color: var(--ink);
-        font-weight: 800;
-      }
-
       .viewer {
         display: grid;
         gap: 14px;
@@ -128,13 +100,11 @@
 
       .page-shell {
         position: relative;
-        display: grid;
-        place-items: center;
         width: 100%;
         max-width: 720px;
-        min-height: 48dvh;
         margin: 0 auto;
         scroll-margin-top: 92px;
+        aspect-ratio: 812 / 1148;
         border-radius: 8px;
         background: var(--surface);
         box-shadow: var(--shadow);
@@ -156,33 +126,12 @@
         line-height: 1;
       }
 
-      canvas {
+      .page-image {
         display: block;
         width: 100%;
-        height: auto;
+        height: 100%;
         background: #ffffff;
-      }
-
-      .message {
-        display: grid;
-        place-items: center;
-        min-height: 52dvh;
-        padding: 24px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--surface);
-        color: var(--muted);
-        font-size: 15px;
-        line-height: 1.5;
-        text-align: center;
-      }
-
-      .error {
-        color: #8b1f1f;
-      }
-
-      .hidden {
-        display: none;
+        object-fit: contain;
       }
 
       .controls {
@@ -256,112 +205,68 @@
     <main class="app" id="top">
       <header class="topbar">
         <div class="title-row">
-          <div>
-            <h1>2026 효자촌 그린타운 2차 특별 정비구역 동의서 제출 안내</h1>
-          </div>
+          <h1>2026 효자촌 그린타운 2차 특별 정비구역 동의서 제출 안내</h1>
           <a class="download" href="./전자동의서및서면동의서제출방법.pdf" download>PDF로 다운받기</a>
         </div>
       </header>
 
-      <section class="viewer" id="pdfPages" aria-label="PDF 스크롤 뷰어">
-        <div class="message" id="loading">PDF를 불러오는 중입니다.</div>
-        <div class="message error hidden" id="error">
-          PDF를 표시하지 못했습니다.<br>
-          상단의 PDF 버튼으로 원본 파일을 열어주세요.
-        </div>
+      <section class="viewer" aria-label="PDF 이미지 스크롤 뷰어">
+        <section class="page-shell" id="page-1" data-page-label="1 / 10" aria-label="1쪽">
+          <img class="page-image" src="./pages/page-01.jpg" alt="동의서 제출 안내 1쪽" width="812" height="1148" fetchpriority="high">
+        </section>
+        <section class="page-shell" id="page-2" data-page-label="2 / 10" aria-label="2쪽">
+          <img class="page-image" src="./pages/page-02.jpg" alt="동의서 제출 안내 2쪽" width="812" height="1148" loading="lazy">
+        </section>
+        <section class="page-shell" id="page-3" data-page-label="3 / 10" aria-label="3쪽">
+          <img class="page-image" src="./pages/page-03.jpg" alt="동의서 제출 안내 3쪽" width="812" height="1148" loading="lazy">
+        </section>
+        <section class="page-shell" id="page-4" data-page-label="4 / 10" aria-label="4쪽">
+          <img class="page-image" src="./pages/page-04.jpg" alt="동의서 제출 안내 4쪽" width="812" height="1148" loading="lazy">
+        </section>
+        <section class="page-shell" id="page-5" data-page-label="5 / 10" aria-label="5쪽">
+          <img class="page-image" src="./pages/page-05.jpg" alt="동의서 제출 안내 5쪽" width="812" height="1148" loading="lazy">
+        </section>
+        <section class="page-shell" id="page-6" data-page-label="6 / 10" aria-label="6쪽">
+          <img class="page-image" src="./pages/page-06.jpg" alt="동의서 제출 안내 6쪽" width="812" height="1148" loading="lazy">
+        </section>
+        <section class="page-shell" id="page-7" data-page-label="7 / 10" aria-label="7쪽">
+          <img class="page-image" src="./pages/page-07.jpg" alt="동의서 제출 안내 7쪽" width="812" height="1148" loading="lazy">
+        </section>
+        <section class="page-shell" id="page-8" data-page-label="8 / 10" aria-label="8쪽">
+          <img class="page-image" src="./pages/page-08.jpg" alt="동의서 제출 안내 8쪽" width="812" height="1148" loading="lazy">
+        </section>
+        <section class="page-shell" id="page-9" data-page-label="9 / 10" aria-label="9쪽">
+          <img class="page-image" src="./pages/page-09.jpg" alt="동의서 제출 안내 9쪽" width="812" height="1148" loading="lazy">
+        </section>
+        <section class="page-shell" id="page-10" data-page-label="10 / 10" aria-label="10쪽">
+          <img class="page-image" src="./pages/page-10.jpg" alt="동의서 제출 안내 10쪽" width="812" height="1148" loading="lazy">
+        </section>
       </section>
     </main>
 
     <nav class="controls" aria-label="바로가기">
       <button class="jump-button" id="topButton" type="button">TOP</button>
-      <button class="jump-button primary" id="electronicButton" type="button" aria-label="얼마집 전자동의 안내">얼마집 전자동의<br>안내</button>
-      <button class="jump-button primary" id="paperButton" type="button" aria-label="서면 동의 안내">서면 동의 안내</button>
+      <button class="jump-button primary" id="electronicButton" type="button">얼마집 전자동의<br>안내</button>
+      <button class="jump-button primary" id="paperButton" type="button">서면 동의 안내</button>
     </nav>
 
-    <script type="module">
-      import * as pdfjsLib from "./vendor/pdf.min.mjs";
-
-      pdfjsLib.GlobalWorkerOptions.workerSrc = "./vendor/pdf.worker.min.mjs";
-
-      const pdfUrl = "./전자동의서및서면동의서제출방법.pdf";
-      const pdfPages = document.getElementById("pdfPages");
-      const loading = document.getElementById("loading");
-      const error = document.getElementById("error");
+    <script>
       const topButton = document.getElementById("topButton");
       const electronicButton = document.getElementById("electronicButton");
       const paperButton = document.getElementById("paperButton");
 
-      const jumpTargets = {
-        electronic: 2,
-        paper: 8,
-      };
-
-      let pdfDocument = null;
-
-      function scrollToTarget(target) {
-        const element = document.getElementById(target);
+      function scrollToTarget(id) {
+        const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-
-      async function renderPage(pageIndex, shell, canvas) {
-        const page = await pdfDocument.getPage(pageIndex);
-        const viewport = page.getViewport({ scale: 1 });
-        const shellWidth = shell.clientWidth;
-        const deviceScale = Math.min(window.devicePixelRatio || 1, 2);
-        const fitScale = shellWidth / viewport.width;
-        const scaledViewport = page.getViewport({ scale: fitScale * deviceScale });
-        const context = canvas.getContext("2d");
-
-        canvas.width = Math.floor(scaledViewport.width);
-        canvas.height = Math.floor(scaledViewport.height);
-        canvas.style.width = `${Math.floor(scaledViewport.width / deviceScale)}px`;
-        canvas.style.height = `${Math.floor(scaledViewport.height / deviceScale)}px`;
-
-        await page.render({
-          canvasContext: context,
-          viewport: scaledViewport,
-        }).promise;
-      }
-
-      async function renderAllPages() {
-        loading.classList.add("hidden");
-        error.classList.add("hidden");
-        pdfPages.replaceChildren();
-
-        for (let pageIndex = 1; pageIndex <= pdfDocument.numPages; pageIndex += 1) {
-          const shell = document.createElement("section");
-          const canvas = document.createElement("canvas");
-          shell.className = "page-shell";
-          shell.id = `page-${pageIndex}`;
-          shell.dataset.pageLabel = `${pageIndex} / ${pdfDocument.numPages}`;
-          shell.setAttribute("aria-label", `${pageIndex}쪽`);
-          shell.append(canvas);
-          pdfPages.append(shell);
-
-          await renderPage(pageIndex, shell, canvas);
         }
       }
 
       topButton.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
-
-      electronicButton.addEventListener("click", () => scrollToTarget(`page-${jumpTargets.electronic}`));
-      paperButton.addEventListener("click", () => scrollToTarget(`page-${jumpTargets.paper}`));
-
-      async function boot() {
-        try {
-          pdfDocument = await pdfjsLib.getDocument(pdfUrl).promise;
-          await renderAllPages();
-        } catch {
-          loading.classList.add("hidden");
-          error.classList.remove("hidden");
-        }
-      }
-
-      boot();
+      electronicButton.addEventListener("click", () => scrollToTarget("page-2"));
+      paperButton.addEventListener("click", () => scrollToTarget("page-8"));
     </script>
   </body>
 </html>
