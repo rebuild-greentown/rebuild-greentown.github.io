@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="동의서 안내 아이콘">
+  <rect width="128" height="128" rx="26" fill="#0f7a4f"/>
+  <path d="M38 24h40l18 18v62H38z" fill="#fff"/>
+  <path d="M78 24v20h18z" fill="#dcebe3"/>
+  <path d="M50 64h28" stroke="#0f7a4f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M49 84l10 10 22-28" fill="none" stroke="#0f7a4f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
