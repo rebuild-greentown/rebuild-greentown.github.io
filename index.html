@@ -151,6 +151,58 @@
         object-fit: contain;
       }
 
+      .reservation-note {
+        position: absolute;
+        top: 57.5%;
+        right: 4.6%;
+        left: 38.5%;
+        z-index: 2;
+        scroll-margin-top: 92px;
+        padding: 10px 11px 11px;
+        border: 2px solid rgba(15, 122, 79, 0.5);
+        border-radius: 14px;
+        background: rgba(255, 254, 248, 0.97);
+        box-shadow: 0 8px 20px rgba(20, 36, 28, 0.16);
+      }
+
+      .reservation-note::before,
+      .reservation-note::after {
+        content: "";
+        position: absolute;
+        right: 34px;
+        bottom: -15px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+
+      .reservation-note::before {
+        border-width: 15px 12px 0 12px;
+        border-color: rgba(15, 122, 79, 0.5) transparent transparent transparent;
+      }
+
+      .reservation-note::after {
+        bottom: -11px;
+        right: 36px;
+        border-width: 12px 10px 0 10px;
+        border-color: #fffef8 transparent transparent transparent;
+      }
+
+      .reservation-note p {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(10px, 2.4vw, 12px);
+        line-height: 1.38;
+        word-break: keep-all;
+      }
+
+      .reservation-note strong {
+        display: inline-block;
+        margin-bottom: 4px;
+        color: var(--brand-dark);
+        font-size: clamp(11px, 2.8vw, 13px);
+      }
+
       .controls {
         position: fixed;
         right: 10px;
@@ -251,6 +303,13 @@
         </section>
         <section class="page-shell" id="page-8" data-page-label="8 / 10" aria-label="8쪽">
           <img class="page-image" src="./pages/page-08.jpg" alt="동의서 제출 안내 8쪽" width="812" height="1148" loading="lazy">
+          <div class="reservation-note" id="paper-reservation" aria-label="서면 동의 예약 안내">
+            <p>
+              <strong>서면 동의 예약 안내</strong><br>
+              서면 동의는 아래 운영 시간 외에도 별도 예약을 통해 진행할 수 있습니다.<br>
+              방문 전 문의 연락처를 통해 예약 일정 문의 부탁드립니다.
+            </p>
+          </div>
         </section>
         <section class="page-shell" id="page-9" data-page-label="9 / 10" aria-label="9쪽">
           <img class="page-image" src="./pages/page-09.jpg" alt="동의서 제출 안내 9쪽" width="812" height="1148" loading="lazy">
@@ -283,7 +342,7 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
       electronicButton.addEventListener("click", () => scrollToTarget("page-2"));
-      paperButton.addEventListener("click", () => scrollToTarget("page-8"));
+      paperButton.addEventListener("click", () => scrollToTarget("paper-reservation"));
     </script>
   </body>
 </html>
